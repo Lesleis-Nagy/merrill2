@@ -4,9 +4,10 @@ project(merrill2)
 set(CMAKE_CXX_STANDARD 20)
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
-set(MERRILL2_INCLUDE_DIR     "${CMAKE_SOURCE_DIR}/include")
-set(MERRILL2_SRC_DIR         "${CMAKE_SOURCE_DIR}/src")
+set(MERRILL2_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/include")
+set(MERRILL2_SRC_DIR "${CMAKE_SOURCE_DIR}/src")
 set(MERRILL2_THIRD_PARTY_DIR "${CMAKE_SOURCE_DIR}/third-party")
+set(MERRILL2_TEST_SRC_DIR "${CMAKE_SOURCE_DIR}/test-src")
 
 include_directories(${MERRILL2_INCLUDE_DIR})
 
@@ -41,6 +42,8 @@ if (${BUILD_TESTS})
     set(MERRILL2_TEST_SRC_DIR "${CMAKE_SOURCE_DIR}/test-src")
     set(MERRILL2_TEST_INCLUDE_DIR "${CMAKE_SOURCE_DIR/test-include}")
     set(CATCH_INCLUDE_DIR "${MERRILL2_THIRD_PARTY_DIR}/catch2-v2.13.9/include")
+
+    include_directories(${CATCH_INCLUDE_DIR})
 
     add_subdirectory(${MERRILL2_TEST_SRC_DIR})
 
